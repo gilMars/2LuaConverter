@@ -13,7 +13,7 @@ class ItemName {
 		
 	public:
 	
-		explicit ItemName( const std::string& fileName, unsigned int& count = 0 );
+		explicit ItemName( const std::string& fileName );
 		void getBuffer() const;
 		unsigned int length();
 		void clear();
