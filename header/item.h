@@ -31,8 +31,8 @@ class Item {
 		std::string getUnknownDisplayName() const;
 		std::string getUnknownSpriteName() const;
 		std::string getUnknownDescription() const;
-		std::string getViewId() const;
-		std::string getSlotCount() const;
+		std::string getItemViewId() const;
+		std::string getItemSlotCount() const;
 		
 		void setItemId( const std::string& id );
 		void setItemDisplayName( const std::string& kDisplayName );
@@ -41,8 +41,8 @@ class Item {
 		void setUnknownDisplayName( const std::string& uDisplayName );
 		void setUnknownSpriteName( const std::string& uSpriteName );
 		void setUnknownDescription( const std::string& uDescription );
-		void setViewId( const std::string& viewId );
-		void setSlotCount( const std::string& slotCount );
+		void setItemViewId( const std::string& viewId );
+		void setItemSlotCount( const std::string& slotCount );
 		
 		std::string toString();
 };
