@@ -19,7 +19,7 @@ item: $(INC)/item.h $(SRC)/item.cpp
 .SILENT:clean	
 clean:
 ifeq ($(OS),Windows_NT)
-	del /Q $(RE)\* $(OBJ)\*
+	del /Q $(RE)\*.exe $(OBJ)\*.o
 else
-	rm $(RE)/* $(OBJ)/*
+	rm $(RE)/*.exe $(OBJ)/*.o
 endif
