@@ -1,104 +1,107 @@
 #include <item.h>
 
-Item::Item( const std::string& itemId, const std::string& itemName,  const std::string& sprName, const std::string& itemDesc, const std::string& uitemName, const std::string& usprName, const std::string& uitemDesc, const std::string& itemViewId, const std::string& itemSlotCount )
-{
-    id = itemId;
+Item::Item( const std::string& id, const std::string& kDisplayName,  const std::string& kSpriteName, const std::string& kDescription, const std::string& uDisplayName, const std::string& uSpriteName, const std::string& uDescription, const std::string& viewId, const std::string& slotCount ) {
     
-    displayName = itemName;
-    spriteName = sprName;
-    desc = itemDesc;
+	
+	this->id            = id;
     
-    udisplayName = uitemName;
-    uspriteName = usprName;
-    udesc = uitemDesc;
+    this->kDisplayName  = kDisplayName;
+    this->kSpriteName   = kSpriteName;
+    this->kDescription  = kDescription;
     
-    viewId = itemViewId;
+    this->uDisplayName  = uDisplayName;
+    this->uSpriteName   = uSpriteName;
+    this->uDescription  = uDescription;
     
-    slotCount = itemSlotCount;
+    this->viewId        = viewId;
+    
+    this->slotCount     = slotCount;
+	
 }
 
 		
-std::string Item::getId() const {
+std::string Item::getItemId() const {
 	return id;
 }
 
-std::string Item::getDisplayName() const {
-	return displayName;
+std::string Item::getItemDisplayName() const {
+	return kDisplayName;
 }
 
-std::string Item::getSpriteName() const {
-	return spriteName;
+std::string Item::getItemSpriteName() const {
+	return kSpriteName;
 }
 
-std::string Item::getDesc() const {
-	return desc;
+std::string Item::getItemDescription() const {
+	return kDescription;
 }
 
-std::string Item::getuDisplayName() const {
-	return udisplayName;
+std::string Item::getUnknownDisplayName() const {
+	return uDisplayName;
 }
 
-std::string Item::getuSpriteName() const {
-	return uspriteName;
+std::string Item::getUnknownSpriteName() const {
+	return uSpriteName;
 }
 
-std::string Item::getuDesc() const {
-	return udesc;
+std::string Item::getUnknownDescription() const {
+	return uDescription;
 }
 
-std::string Item::getViewId() const {
+std::string Item::getItemViewId() const {
 	return viewId;
 }
 
-std::string Item::getSlotCount() const {
+std::string Item::getItemSlotCount() const {
 	return slotCount;
 }
 
-void Item::setId( const std::string& itemId ) {
-	id = itemId;
+void Item::setItemId( const std::string& id ) {
+	this->id = id;
 }
 
-void Item::setDisplayName( const std::string& itemDisplayName ) {
-	displayName = itemDisplayName;
+void Item::setItemDisplayName( const std::string& kDisplayName ) {
+	this->kDisplayName = kDisplayName;
 }
 
-void Item::setSpriteName( const std::string& itemSpriteName ) {
-	spriteName = itemSpriteName;
+void Item::setItemSpriteName( const std::string& kSpriteName ) {
+	this->kSpriteName = kSpriteName;
 }
 
-void Item::setDesc( const std::string& itemDesc ) {
-	desc = itemDesc;
+void Item::setItemDescription( const std::string& kDescription ) {
+	this->kDescription = kDescription;
 }
 
-void Item::setuDisplayName( const std::string& uitemDisplayName ) {
-	udisplayName = uitemDisplayName;
+void Item::setUnknownDisplayName( const std::string& uDisplayName ) {
+	this->uDisplayName = uDisplayName;
 }
 
-void Item::setuSpriteName( const std::string& uitemSpriteName ) {
-	uspriteName = uitemSpriteName;
+void Item::setUnknownSpriteName( const std::string& uSpriteName ) {
+	this->uSpriteName = uSpriteName;
 }
 
-void Item::setuDesc( const std::string& uitemDesc ) {
-	udesc = uitemDesc;
+void Item::setUnknownDescription( const std::string& uDescription ) {
+	this->uDescription = uDescription;
 }
 
-void Item::setViewId( const std::string& itemViewId ) {
-	viewId = itemViewId;
+void Item::setItemViewId( const std::string& viewId ) {
+	this->viewId = viewId;
 }
 
-void Item::setSlotCount( const std::string& itemSlotCount ) {
-	slotCount = itemSlotCount;
+void Item::setItemSlotCount( const std::string& slotCount ) {
+	this->slotCount = slotCount;
 }
 	
 std::string Item::toString() {
     
-    return  "\t[" + id
-    + "] = {\n\t\tunidentifiedDisplayName = \"" + udisplayName
-    + "\",\n\t\tunidentifiedResourceName = \"" + uspriteName
-    + "\",\n\t\tunidentifiedDescriptionName = {\n" + udesc
-    + "\t\t},\n\t\tidentifiedDisplayName = \"" + displayName
-    + "\",\n\t\tidentifiedResourceName = \"" + spriteName
-    + "\",\n\t\tidentifiedDescriptionName = {\n" + desc
+    return
+	"\t[" + id
+    + "] = {\n\t\tunidentifiedDisplayName = \"" + uDisplayName
+    + "\",\n\t\tunidentifiedResourceName = \"" + uSpriteName
+    + "\",\n\t\tunidentifiedDescriptionName = {\n" + uDescription
+    + "\t\t},\n\t\tidentifiedDisplayName = \"" + kDisplayName
+    + "\",\n\t\tidentifiedResourceName = \"" + kSpriteName
+    + "\",\n\t\tidentifiedDescriptionName = {\n" + kDescription
     + "\t\t},\n\t\tslotCount = " + slotCount
     + ",\n\t\tClassNum = " + viewId
     + "\n\t},\n";
