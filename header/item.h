@@ -34,15 +34,15 @@ class Item {
 		std::string getViewId() const;
 		std::string getSlotCount() const;
 		
-		void setItemId( const std::string& itemId );
-		void setItemDisplayName( const std::string& itemDisplayName );
-		void setItemSpriteName( const std::string& itemSpriteName );
-		void setItemDescription( const std::string& itemDesc );
-		void setUnknownDisplayName( const std::string& uitemDisplayName );
-		void setUnknownSpriteName( const std::string& uitemSpriteName );
-		void setUnknownDescription( const std::string& uitemDesc );
-		void setViewId( const std::string& itemViewId );
-		void setSlotCount( const std::string& itemSlotCount );
+		void setItemId( const std::string& id );
+		void setItemDisplayName( const std::string& kDisplayName );
+		void setItemSpriteName( const std::string& kSpriteName );
+		void setItemDescription( const std::string& kDescription );
+		void setUnknownDisplayName( const std::string& uDisplayName );
+		void setUnknownSpriteName( const std::string& uSpriteName );
+		void setUnknownDescription( const std::string& uDescription );
+		void setViewId( const std::string& viewId );
+		void setSlotCount( const std::string& slotCount );
 		
 		std::string toString();
 };
