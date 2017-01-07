@@ -19,8 +19,7 @@ void init_read( void* state ) {
 	
 	FileReader item_db("item_db.txt",VIEW);
 	map<string,string> view = item_db.readData();
-	cout << view.size();
-	/*
+	
 	FileReader display_name("idnum2itemdisplaynametable.txt",DISP);
 	map<string,string> disp = display_name.readData();
 	
@@ -51,7 +50,7 @@ void init_read( void* state ) {
 	saida << F_MAIN;
 	
 	saida.close();	
-	*/
+	
 	((atomic_bool*)state)->store(false);
 	pthread_exit(NULL);
 }
