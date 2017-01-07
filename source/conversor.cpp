@@ -9,7 +9,7 @@
 #include <time.h>
 #include <iostream>
 
-//static const char* F_MAIN  = "}\nmain = function()\n\tfor ItemID,DESC in pairs(tbl) do\n\t\tresult, msg = AddItem(ItemID, DESC.unidentifiedDisplayName, DESC.unidentifiedResourceName, DESC.identifiedDisplayName, DESC.identifiedResourceName, DESC.slotCount, DESC.ClassNum)\n\t\tif not result then\n\t\t\treturn false, msg\n\t\tend\n\t\tfor k,v in pairs(DESC.unidentifiedDescriptionName) do\n\t\t\tresult, msg = AddItemUnidentifiedDesc(ItemID, v)\n\t\t\tif not result then\n\t\t\t\treturn false, msg\n\t\t\tend\n\t\tend\n\t\tfor k,v in pairs(DESC.identifiedDescriptionName) do\n\t\t\tresult, msg = AddItemIdentifiedDesc(ItemID, v)\n\t\t\tif not result then\n\t\t\t\treturn false, msg\n\t\t\tend\n\t\tend\n\tend\n\treturn true, \"good\"\nend";
+static const char* F_MAIN  = "}\nmain = function()\n\tfor ItemID,DESC in pairs(tbl) do\n\t\tresult, msg = AddItem(ItemID, DESC.unidentifiedDisplayName, DESC.unidentifiedResourceName, DESC.identifiedDisplayName, DESC.identifiedResourceName, DESC.slotCount, DESC.ClassNum)\n\t\tif not result then\n\t\t\treturn false, msg\n\t\tend\n\t\tfor k,v in pairs(DESC.unidentifiedDescriptionName) do\n\t\t\tresult, msg = AddItemUnidentifiedDesc(ItemID, v)\n\t\t\tif not result then\n\t\t\t\treturn false, msg\n\t\t\tend\n\t\tend\n\t\tfor k,v in pairs(DESC.identifiedDescriptionName) do\n\t\t\tresult, msg = AddItemIdentifiedDesc(ItemID, v)\n\t\t\tif not result then\n\t\t\t\treturn false, msg\n\t\t\tend\n\t\tend\n\tend\n\treturn true, \"good\"\nend";
 
 using namespace std;
 
@@ -50,7 +50,7 @@ void init_read( void* state ) {
 	saida << F_MAIN;
 	
 	saida.close();	
-	
+		
 	((atomic_bool*)state)->store(false);
 	pthread_exit(NULL);
 }
