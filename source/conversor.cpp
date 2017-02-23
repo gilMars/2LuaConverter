@@ -1,4 +1,4 @@
-#include <filereader.h>
+#include <datareader.h>
 #include <item.h>
 #include <stdio.h>
 #include <map>
@@ -12,14 +12,16 @@
 //static const char* F_MAIN  = "}\nmain = function()\n\tfor ItemID,DESC in pairs(tbl) do\n\t\tresult, msg = AddItem(ItemID, DESC.unidentifiedDisplayName, DESC.unidentifiedResourceName, DESC.identifiedDisplayName, DESC.identifiedResourceName, DESC.slotCount, DESC.ClassNum)\n\t\tif not result then\n\t\t\treturn false, msg\n\t\tend\n\t\tfor k,v in pairs(DESC.unidentifiedDescriptionName) do\n\t\t\tresult, msg = AddItemUnidentifiedDesc(ItemID, v)\n\t\t\tif not result then\n\t\t\t\treturn false, msg\n\t\t\tend\n\t\tend\n\t\tfor k,v in pairs(DESC.identifiedDescriptionName) do\n\t\t\tresult, msg = AddItemIdentifiedDesc(ItemID, v)\n\t\t\tif not result then\n\t\t\t\treturn false, msg\n\t\t\tend\n\t\tend\n\tend\n\treturn true, \"good\"\nend";
 
 using namespace std;
-
+using namespace data;
 typedef void* (*func)( void* );
 
 void init_read( void* state ) {
 	
-	FileReader item_db("item_db.txt",VIEW);
-	map<string,string> view = item_db.readData();
-	cout << view.size();
+	string file;
+	getFile( "item_db.txt", file );
+	//cout << file;
+	map<string,string> view = format_viewid_to_map(file);
+	//cout << view.size();
 	/*
 	FileReader display_name("idnum2itemdisplaynametable.txt",DISP);
 	map<string,string> disp = display_name.readData();
