@@ -40,6 +40,8 @@ namespace data {
     */
     std::map<std::string, std::string> format_displayname_to_map( const std::string& buffer );
 
+    std::map<std::string, std::string> format_spritename_to_map( const std::string& buffer );
+
     /*
      * Método responsável por formatar os dados do arquivo com o id e o slot do item.
      * @param buffer variável com os dados do arquivo que foi carregado na memória.
