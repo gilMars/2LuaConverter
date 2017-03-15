@@ -114,6 +114,30 @@ std::map<std::string, std::string> data::format_displayname_to_map( const std::s
         for ( auto i: sm ) {
             std::string txt = i.str();
             std::size_t pos = txt.find('#');
+            data[txt.substr(0,pos)] = std::regex_replace( txt.substr( pos+1,(txt.length()-(pos+2)) ), std::regex("_"), " ");
+            tmp = sm.suffix().str();
+        }
+
+    }
+
+    return data;
+
+}
+
+std::map<std::string, std::string> data::format_spritename_to_map( const std::string& buffer ) {
+
+    std::regex pattern( "\\d+#.*?#" );
+    std::string tmp = buffer;
+    std::smatch sm;
+
+
+    std::map<std::string,std::string> data;
+
+    while ( std::regex_search ( tmp, sm, pattern )) {
+
+        for ( auto i: sm ) {
+            std::string txt = i.str();
+            std::size_t pos = txt.find('#');
             data[txt.substr(0,pos)] = std::regex_replace( txt.substr( pos+1,(txt.length()-(pos+2)) ), std::regex("\\s+"), "_$2");
             tmp = sm.suffix().str();
         }
