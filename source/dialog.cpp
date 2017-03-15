@@ -63,13 +63,13 @@ unsigned int Dialog::init_read( const std::string& dir, bool log ) {
 
     std::map<std::string,std::string> desc = data::format_description_to_map(description);
 
-    std::map<std::string,std::string> sprite = data::format_displayname_to_map(sprite_name);
+    std::map<std::string,std::string> sprite = data::format_spritename_to_map(sprite_name);
 
     std::map<std::string,std::string> udisp = data::format_displayname_to_map(udisplay_name);
 
     std::map<std::string,std::string> udesc = data::format_description_to_map(udescription);
 
-    std::map<std::string,std::string> usprite = data::format_displayname_to_map(usprite_name);
+    std::map<std::string,std::string> usprite = data::format_spritename_to_map(usprite_name);
 
     std::map<std::string,std::string> slot = data::format_slot_to_map(item_slot);
 
@@ -89,20 +89,20 @@ unsigned int Dialog::init_read( const std::string& dir, bool log ) {
             std::string uds = udesc[id];
             std::string vi = view[id];
             std::string sl = slot[id];
-            if ( display.empty() )logitem[id].push_back("Nome não encontrado.");
-            if ( spr.empty() )logitem[id].push_back("Sprite não encotrada.");
+            if ( display.empty() )logitem[id].push_back("Nome não encontrado. ");
+            if ( spr.empty() )logitem[id].push_back("Sprite não encotrada. ");
             if ( ds.empty() )logitem[id].push_back("Descrição não encontrada");
-            if ( udis.empty() )logitem[id].push_back("Nome de item desconhecido não encontrado.");
-            if ( uspr.empty() )logitem[id].push_back("Sprite de item desconhecido não encontrado.");
-            if ( uds.empty() )logitem[id].push_back("Descrição de item desconhecido não encontrado.");
-            if ( vi.empty() )logitem[id].push_back("ViewId não encontrado.");
+            if ( udis.empty() )logitem[id].push_back("Nome de item desconhecido não encontrado. ");
+            if ( uspr.empty() )logitem[id].push_back("Sprite de item desconhecido não encontrado. ");
+            if ( uds.empty() )logitem[id].push_back("Descrição de item desconhecido não encontrado. ");
+            if ( vi.empty() )logitem[id].push_back("ViewId não encontrado. ");
 
             saida << Item( id, display,  spr, ds, udis, uspr, uds, ((vi.empty())? "0":vi), ((sl.empty())? "0":sl) ).toString();
         }
 
         for ( const auto& error: logitem ) {
             logerror << error.first << ":";
-            for ( const auto& info: error.second ) logerror << " " << info;
+            for ( const auto& info: error.second ) logerror << info;
             logerror << std::endl;
         }
 
