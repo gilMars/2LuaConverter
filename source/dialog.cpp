@@ -89,21 +89,25 @@ unsigned int Dialog::init_read( const std::string& dir, bool log ) {
             std::string uds = udesc[id];
             std::string vi = view[id];
             std::string sl = slot[id];
-            if ( display.empty() )logitem[id].push_back("Nome não encontrado. ");
-            if ( spr.empty() )logitem[id].push_back("Sprite não encotrada. ");
-            if ( ds.empty() )logitem[id].push_back("Descrição não encontrada");
-            if ( udis.empty() )logitem[id].push_back("Nome de item desconhecido não encontrado. ");
-            if ( uspr.empty() )logitem[id].push_back("Sprite de item desconhecido não encontrado. ");
-            if ( uds.empty() )logitem[id].push_back("Descrição de item desconhecido não encontrado. ");
-            if ( vi.empty() )logitem[id].push_back("ViewId não encontrado. ");
+
+            if ( display.empty() )logitem[id].push_back(" displayname não encontrado.");
+            if ( spr.empty() )logitem[id].push_back(" spritename não encotrada.");
+            if ( ds.empty() )logitem[id].push_back(" description não encontrada.");
+            if ( udis.empty() )logitem[id].push_back(" udisplayname não encontrado.");
+            if ( uspr.empty() )logitem[id].push_back(" uspritename não encontrado.");
+            if ( uds.empty() )logitem[id].push_back(" udescription não encontrado.");
+            if ( vi.empty() )logitem[id].push_back(" viewid não encontrado.");
 
             saida << Item( id, display,  spr, ds, udis, uspr, uds, ((vi.empty())? "0":vi), ((sl.empty())? "0":sl) ).toString();
         }
 
         for ( const auto& error: logitem ) {
             logerror << error.first << ":";
-            for ( const auto& info: error.second ) logerror << info;
+            for ( const auto& info: error.second ) {
+                logerror << info;
+            }
             logerror << std::endl;
+
         }
 
         logerror.close();
@@ -120,7 +124,10 @@ unsigned int Dialog::init_read( const std::string& dir, bool log ) {
 void Dialog::start_convert() {
 
     ui->progressBar->show();
-
+    ui->convertButton->setDisabled(true);
+    ui->selectButton->setDisabled(true);
+    ui->creditos->setDisabled(true);
+    ui->errorCheckBox->setDisabled(true);
     QFuture<unsigned int> future = QtConcurrent::run( this,Dialog::init_read,ui->showDirName->text().toStdString(), ui->errorCheckBox->isChecked() );
 
     this->FutureWatcher.setFuture(future);
@@ -129,6 +136,10 @@ void Dialog::start_convert() {
 
 void Dialog::slot_finished() {
     ui->progressBar->hide();
+    ui->convertButton->setEnabled(true);
+    ui->selectButton->setEnabled(true);
+    ui->creditos->setEnabled(true);
+    ui->errorCheckBox->setEnabled(true);
 
     unsigned int result = this->FutureWatcher.future().result();
     switch(result) {
@@ -174,4 +185,9 @@ void Dialog::on_convertButton_clicked()
 
     start_convert();
 
+}
+
+void Dialog::on_creditos_clicked()
+{
+    QMessageBox::about(this,"Créditos", "Programa desenvolvidor por: <a href='https://forum.brathena.org/index.php?/profile/12844-kyomai'>Gilmar B. Freitas (@Kyomai)</a>");
 }
