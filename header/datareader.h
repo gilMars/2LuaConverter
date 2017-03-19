@@ -34,12 +34,17 @@ namespace data {
     std::map<std::string, std::string> format_viewid_to_map( const std::string& buffer );
 
     /*
-     *  Método que irá formatar os dados do arquivo de acordo com o id e seu respectivo displayname.
+     * Método que irá formatar os dados do arquivo de acordo com o id e seu respectivo displayname.
      * @param buffer variável com os dados do arquivo.
      * @return map<id,displayname> é o map com o id e nome de cada item.
     */
     std::map<std::string, std::string> format_displayname_to_map( const std::string& buffer );
 
+    /*
+     * Método responsável por formatar os dados do arquivo de acordo com a sprite de cada item e seu respectivo id
+     * @param buffer variável que armazena o arquivo completo.
+     * @return map<id, sprite> é o map com o id do item e sua respectiva sprite.
+    */
     std::map<std::string, std::string> format_spritename_to_map( const std::string& buffer );
 
     /*
