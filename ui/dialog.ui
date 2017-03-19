@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>Gilmar B. Freitas (@Kyomai)</author>
  <class>Dialog</class>
  <widget class="QDialog" name="Dialog">
   <property name="geometry">
@@ -7,7 +8,7 @@
     <x>0</x>
     <y>0</y>
     <width>328</width>
-    <height>127</height>
+    <height>150</height>
    </rect>
   </property>
   <property name="contextMenuPolicy">
@@ -20,20 +21,33 @@
    <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="1" column="0">
-    <widget class="QLabel" name="dirLabel">
+   <item row="2" column="0">
+    <spacer name="verticalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QCheckBox" name="errorCheckBox">
      <property name="text">
-      <string>Diretório:</string>
+      <string>Registrar erros</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="2">
-    <widget class="QPushButton" name="convertButton">
-     <property name="styleSheet">
-      <string notr="true"/>
+   <item row="5" column="0" colspan="3">
+    <widget class="QProgressBar" name="progressBar">
+     <property name="enabled">
+      <bool>true</bool>
      </property>
-     <property name="text">
-      <string>Converter</string>
+     <property name="value">
+      <number>0</number>
      </property>
     </widget>
    </item>
@@ -49,6 +63,9 @@
    </item>
    <item row="1" column="2">
     <widget class="QPushButton" name="selectButton">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
      <property name="styleSheet">
       <string notr="true"/>
      </property>
@@ -83,15 +100,25 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="0" colspan="2">
-    <widget class="QCheckBox" name="errorCheckBox">
+   <item row="3" column="2">
+    <widget class="QPushButton" name="convertButton">
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
      <property name="text">
-      <string>Registrar erros</string>
+      <string>Converter</string>
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
-    <spacer name="verticalSpacer_3">
+   <item row="1" column="0">
+    <widget class="QLabel" name="dirLabel">
+     <property name="text">
+      <string>Diretório:</string>
+     </property>
+    </widget>
+   </item>
+   <item row="6" column="0">
+    <spacer name="verticalSpacer_4">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
      </property>
@@ -103,13 +130,10 @@
      </property>
     </spacer>
    </item>
-   <item row="5" column="0" colspan="3">
-    <widget class="QProgressBar" name="progressBar">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="value">
-      <number>0</number>
+   <item row="7" column="0">
+    <widget class="QPushButton" name="creditos">
+     <property name="text">
+      <string>Créditos</string>
      </property>
     </widget>
    </item>
