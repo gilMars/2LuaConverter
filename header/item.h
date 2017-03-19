@@ -1,3 +1,8 @@
+/*
+ * Arquivo de cabeçalho com a classe Item, que é responsável por representar o item e suas devidas informações, juntamente com seus métodos de manipulação.
+ * @author Gilmar B. Freitas.
+ * @version 1.0
+*/
 #ifndef ITEM_H
 #define ITEM_H
 
@@ -7,18 +12,18 @@ class Item {
 
     private:
 
-        std::string id;
+        std::string id;           // Id do item que será lido
 
-        std::string kDisplayName;
-        std::string kSpriteName;
-        std::string kDescription;
+        std::string kDisplayName; // Nome do item identificado
+        std::string kSpriteName;  // Sprite do item identificado
+        std::string kDescription; // Descrição do item identificado
 
-        std::string uDisplayName;
-        std::string uSpriteName;
-        std::string uDescription;
+        std::string uDisplayName; // Nome do item não identificado
+        std::string uSpriteName;  // Sprite do item não identificado
+        std::string uDescription; // Descrição do item não identificado
 
-        std::string viewId;
-        std::string slotCount;
+        std::string viewId;       // ViewId do item, caso tenha
+        std::string slotCount;    // Quantidade de slots do item, caso tenha
 
     public:
 
@@ -44,6 +49,10 @@ class Item {
         void setItemViewId( const std::string& viewId );
         void setItemSlotCount( const std::string& slotCount );
 
+        /*
+         * Método irá formatar os atributos do Item de acordo com a estrutura de uma lista em Lua
+         * @return std::string será retornada com as informações do item, id, sprite, descrição e etc...
+        */
         std::string toString();
 };
 
