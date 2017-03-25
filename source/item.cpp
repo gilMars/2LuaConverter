@@ -1,101 +1,101 @@
-#include <item.h>
+#include "header/item.h"
 
 Item::Item( const std::string& id, const std::string& kDisplayName,  const std::string& kSpriteName, const std::string& kDescription, const std::string& uDisplayName, const std::string& uSpriteName, const std::string& uDescription, const std::string& viewId, const std::string& slotCount ) {
-    
-	
-	this->id            = id;
-    
+
+
+    this->id            = id;
+
     this->kDisplayName  = kDisplayName;
     this->kSpriteName   = kSpriteName;
     this->kDescription  = kDescription;
-    
+
     this->uDisplayName  = uDisplayName;
     this->uSpriteName   = uSpriteName;
     this->uDescription  = uDescription;
-    
+
     this->viewId        = viewId;
-    
+
     this->slotCount     = slotCount;
-	
+
 }
 
-		
+
 std::string Item::getItemId() const {
-	return id;
+    return id;
 }
 
 std::string Item::getItemDisplayName() const {
-	return kDisplayName;
+    return kDisplayName;
 }
 
 std::string Item::getItemSpriteName() const {
-	return kSpriteName;
+    return kSpriteName;
 }
 
 std::string Item::getItemDescription() const {
-	return kDescription;
+    return kDescription;
 }
 
 std::string Item::getUnknownDisplayName() const {
-	return uDisplayName;
+    return uDisplayName;
 }
 
 std::string Item::getUnknownSpriteName() const {
-	return uSpriteName;
+    return uSpriteName;
 }
 
 std::string Item::getUnknownDescription() const {
-	return uDescription;
+    return uDescription;
 }
 
 std::string Item::getItemViewId() const {
-	return viewId;
+    return viewId;
 }
 
 std::string Item::getItemSlotCount() const {
-	return slotCount;
+    return slotCount;
 }
 
 void Item::setItemId( const std::string& id ) {
-	this->id = id;
+    this->id = id;
 }
 
 void Item::setItemDisplayName( const std::string& kDisplayName ) {
-	this->kDisplayName = kDisplayName;
+    this->kDisplayName = kDisplayName;
 }
 
 void Item::setItemSpriteName( const std::string& kSpriteName ) {
-	this->kSpriteName = kSpriteName;
+    this->kSpriteName = kSpriteName;
 }
 
 void Item::setItemDescription( const std::string& kDescription ) {
-	this->kDescription = kDescription;
+    this->kDescription = kDescription;
 }
 
 void Item::setUnknownDisplayName( const std::string& uDisplayName ) {
-	this->uDisplayName = uDisplayName;
+    this->uDisplayName = uDisplayName;
 }
 
 void Item::setUnknownSpriteName( const std::string& uSpriteName ) {
-	this->uSpriteName = uSpriteName;
+    this->uSpriteName = uSpriteName;
 }
 
 void Item::setUnknownDescription( const std::string& uDescription ) {
-	this->uDescription = uDescription;
+    this->uDescription = uDescription;
 }
 
 void Item::setItemViewId( const std::string& viewId ) {
-	this->viewId = viewId;
+    this->viewId = viewId;
 }
 
 void Item::setItemSlotCount( const std::string& slotCount ) {
-	this->slotCount = slotCount;
+    this->slotCount = slotCount;
 }
-	
+
 std::string Item::toString() {
-    
+
     return
-	"\t[" + id
+    "\t[" + id
     + "] = {\n\t\tunidentifiedDisplayName = \"" + uDisplayName
     + "\",\n\t\tunidentifiedResourceName = \"" + uSpriteName
     + "\",\n\t\tunidentifiedDescriptionName = {\n" + uDescription
@@ -105,5 +105,5 @@ std::string Item::toString() {
     + "\t\t},\n\t\tslotCount = " + slotCount
     + ",\n\t\tClassNum = " + viewId
     + "\n\t},\n";
-    
+
 }
